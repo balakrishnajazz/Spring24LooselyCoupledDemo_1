@@ -7,6 +7,8 @@ import org.springframework.context.ApplicationContext;
 @SpringBootApplication
 public class Spring24LooselyCoupledDemo1Application {
 
+	
+//	main start
 	public static void main(String[] args) {
 		
 		ApplicationContext applicationContext = SpringApplication.run(Spring24LooselyCoupledDemo1Application.class, args);
