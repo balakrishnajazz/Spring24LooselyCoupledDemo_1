@@ -16,6 +16,11 @@ public class Spring24LooselyCoupledDemo1Application {
 //		using the application context we can call the bean which we requiere.
 		BinarySearchImpl binarySearch = applicationContext.getBean(BinarySearchImpl.class);
 		
+		BinarySearchImpl binarySearch1 = applicationContext.getBean(BinarySearchImpl.class);
+		
+		System.out.println(binarySearch);
+		System.out.println(binarySearch1);
+		
 		
 		int result = binarySearch.binarySearch(new int[] {1,2,3},1);
 		System.out.println(result);
