@@ -1,4 +1,4 @@
-package com.example.Spring24LooselyCoupledDemo_1;
+package com.example.Spring24LooselyCoupledDemo_1.basicsortingdemo;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;

@@ -1,29 +1,36 @@
 package com.example.Spring24LooselyCoupledDemo_1;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
+import com.example.Spring24LooselyCoupledDemo_1.basicsortingdemo.BinarySearchImpl;
+import com.example.Spring24LooselyCoupledDemo_1.scope.PersonDao;
+
 @SpringBootApplication
 public class Spring24LooselyCoupledDemo1Application {
-
+	
+	private static Logger LOGGER = LoggerFactory.getLogger(Spring24LooselyCoupledDemo1Application.class);
 	
 //	main start
 	public static void main(String[] args) {
 		
+		
+		
 		ApplicationContext applicationContext = SpringApplication.run(Spring24LooselyCoupledDemo1Application.class, args);
 		
-//		using the application context we can call the bean which we requiere.
-		BinarySearchImpl binarySearch = applicationContext.getBean(BinarySearchImpl.class);
+		PersonDao personDao = applicationContext.getBean(PersonDao.class);
 		
-		BinarySearchImpl binarySearch1 = applicationContext.getBean(BinarySearchImpl.class);
+		PersonDao personDao2 = applicationContext.getBean(PersonDao.class);
 		
-		System.out.println(binarySearch);
-		System.out.println(binarySearch1);
+//		For getting the log information we will use this.
+		LOGGER.info("{}",personDao);
+		LOGGER.info("{}",personDao.getJdbcConnection());
 		
-		
-		int result = binarySearch.binarySearch(new int[] {1,2,3},1);
-		System.out.println(result);
+		LOGGER.info("{}",personDao2);
+		LOGGER.info("{}",personDao2.getJdbcConnection());
 	}
 
 }

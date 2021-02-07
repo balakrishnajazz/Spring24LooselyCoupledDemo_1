@@ -1,4 +1,4 @@
-package com.example.Spring24LooselyCoupledDemo_1;
+package com.example.Spring24LooselyCoupledDemo_1.basicsortingdemo;
 
 public interface SortAlgorthim {
 	
