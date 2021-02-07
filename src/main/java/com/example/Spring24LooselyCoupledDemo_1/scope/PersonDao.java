@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 //Here we are getting different instances since we have used prototype as a scope.
-
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class PersonDao {
 	
 	@Autowired

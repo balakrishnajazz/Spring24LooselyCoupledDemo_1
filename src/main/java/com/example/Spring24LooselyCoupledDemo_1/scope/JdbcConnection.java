@@ -5,10 +5,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-//If we used prototype as a scope we get same instance here
-//this is because this class is called from the PersonDao
-//Which holds the Singleton as an instance by default.
-@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class JdbcConnection {
 	
 	public JdbcConnection() {
