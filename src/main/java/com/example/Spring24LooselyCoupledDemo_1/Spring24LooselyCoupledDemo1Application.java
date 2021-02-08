@@ -29,6 +29,12 @@ public class Spring24LooselyCoupledDemo1Application {
 		LOGGER.info("{}",personDao);
 		LOGGER.info("{}",personDao.getJdbcConnection());
 		
+//		suppose if we call the getJDBCConnection it will return the jdbc connection will new instance.
+//		According to spring there is one instance for application in the spring jvm
+//		According to gof (gang of ford ) there is one instance a
+		LOGGER.info("{}",personDao.getJdbcConnection());
+		
+		
 		LOGGER.info("{}",personDao2);
 		LOGGER.info("{}",personDao2.getJdbcConnection());
 	}
