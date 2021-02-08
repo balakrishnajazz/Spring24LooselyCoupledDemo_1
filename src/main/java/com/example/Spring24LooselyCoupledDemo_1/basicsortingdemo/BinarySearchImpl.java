@@ -1,5 +1,10 @@
 package com.example.Spring24LooselyCoupledDemo_1.basicsortingdemo;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -22,6 +27,8 @@ public class BinarySearchImpl {
 //	Autowiring using the userdefined names using the
 //	@Qualifier annotation.
 	
+	private Logger LOGGER = LoggerFactory.getLogger(this.getClass());
+	
 	@Autowired
 	@Qualifier("merge")
 	private SortAlgorthim sortAlgorthim; 
@@ -35,4 +42,18 @@ public class BinarySearchImpl {
 		return arr[ind];
 	}
 
+//	Before the dependencies are populated the post constructor is called.
+//	After that the beans are intialled.
+	@PostConstruct
+	public void postConstruct() {
+		LOGGER.info("postconstruct");
+	}
+	
+//	just before the bean is destroyed
+//	This method is called.
+	@PreDestroy
+	public void preDestory() {
+		LOGGER.info("preDestroy");
+		System.out.println("preDestroy");
+	}
 }
