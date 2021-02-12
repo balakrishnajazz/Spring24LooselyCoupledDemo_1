@@ -1,17 +1,20 @@
 package com.example.Spring24LooselyCoupledDemo_1;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-@Component
+@Named
 public class BinarySearchImpl {
 	
 //	Autowiring using the userdefined names using the
 //	@Qualifier annotation.
 	
-	@Autowired
-	@Qualifier("merge")
+	@Inject
+	@Qualifier("quickSort")
 	private SortAlgorthim sortAlgorthim; 
 	
 	public int binarySearch(int[] arr,int ind) {

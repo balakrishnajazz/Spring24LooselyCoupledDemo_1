@@ -1,12 +1,14 @@
 package com.example.Spring24LooselyCoupledDemo_1;
 
+import javax.inject.Named;
+
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 
-@Component
-@Qualifier("quick")
+@Named
+@Qualifier("quickSort")
 public class QuickSort implements SortAlgorthim {
 
 	@Override
