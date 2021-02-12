@@ -1,5 +1,7 @@
 package com.example.Spring24LooselyCoupledDemo_1;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
@@ -9,10 +11,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.example.Spring24LooselyCoupledDemo_1.xmljdbcconnection.XmlPersonDao;
 
-@Configuration
-@ComponentScan
+
 public class SpringXmlConfiguration {
 
+	private static Logger LOGGER = LoggerFactory.getLogger(SpringXmlConfiguration.class);
 //	main start
 	public static void main(String[] args) {
 		
@@ -26,7 +28,11 @@ public class SpringXmlConfiguration {
 		try(ClassPathXmlApplicationContext applicationContext = 
 				new ClassPathXmlApplicationContext("applicationContext.xml")){
 			
+//			we are getting the names of the beans defined in the applicationContext.xml
+			LOGGER.info("Bean classes : {}",(Object)applicationContext.getBeanDefinitionNames());
+			
 			XmlPersonDao personDao = applicationContext.getBean(XmlPersonDao.class);
+			
 			System.out.println(personDao);
 
 		}		
